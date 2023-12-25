@@ -1,0 +1,127 @@
+@mixin font($size, $heigth, $weight: 600, $style: normal) {
+    font-size: $size;
+    font-style: $style;
+    font-weight: $weight;
+    line-height: $heigth;
+  }
+  
+  @mixin columns($width) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    > * {
+      flex-basis: $width;
+    }
+  }
+  
+  @mixin mobile_laptop() {
+    @media (max-width: $content-width) {
+      @content;
+    }
+  }
+  
+  @mixin mobile_tablet() {
+    @media (max-width: $tablet-width) {
+      @content;
+    }
+  }
+  
+  @mixin mobile_mobile-big-width() {
+    @media (max-width: $mobile-big-width) {
+      @content;
+    }
+  }
+  
+  @mixin mobile_mobile-small-width() {
+    @media (max-width: $mobile-small-width) {
+      @content;
+    }
+  }
+  
+  @mixin content-width($max-width) {
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+  
+  @mixin menu-link-after($color) {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: left;
+    @extend %transition;
+  }
+  
+  @mixin spinAnimation {
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    animation: spin 3s linear infinite;
+    transform-origin: center;
+  }
+  
+  @mixin slideInLeftAnimation($color-start, $color-end, $delay: 0s) {
+    @keyframes stripeInLeft {
+      0% {
+        background-color: $color-start;
+      }
+      100% {
+        background-color: $color-end;
+      }
+    }
+    animation: stripeInLeft 5c linear $delay forwards;
+  }
+  
+  @mixin slideAnimation($direction: left, $duration: 0.5s, $ease: ease-in-out) {
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  
+    @if $direction == left {
+      animation: slideInLeft $duration $ease forwards;
+    } @else if $direction == right {
+      animation: slideInRight $duration $ease forwards;
+    }
+  }
+  
+  @mixin animate-stripe($duration, $delay) {
+    animation: fillStripe $duration linear $delay forwards;
+  }
+    @keyframes fillStripe {
+      from {
+        width: 0;
+        background-color: $border-color-dark;
+      }
+      to {
+        width: 100%;
+        background-color: $border-color-dark;
+      }
+    }
