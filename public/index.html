@@ -7,26 +7,77 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
     <link rel="manifest" href="./favicon/site.webmanifest">
-    <link rel="stylesheet" href="../src/sass/style.css">
+    <!-- <link rel="stylesheet" href="../src/sass/style.css"> -->
     <title>The Star Wars</title>
 </head>
 <body>
     <div class="container">
-        <header>
-
-        </header>
         <main>
-            <div class="wrapper">
-                <div class="wrapper__content">
-                    <div class="wrapper__content__title">
-                        <h1>Star Wars</h1>
+            <section class="hero">
+                <div class="hero wrapper">
+                    <video autoplay muted loop id="myVideo">
+                        <source src="../src/assets/image/hero.mp4" type="video/mp4">
+                        Yor browser doesn't support HTML5 video.
+                    </video>
+                    <div class="hero__promo">
+                        <div class="hero__promo-title">
+                            <h1><span style="font-style: italic; color: #B0907A;">Explore</span> the Galaxy of Star Wars Movies</h1>
+                        </div>
+                        <div class="hero__promo-text">
+                            <p>
+                                Dive into the epic world of Star Wars with our extensive collection. From the iconic original trilogy to the latest adventures, discover the stories that have captivated audiences of all ages. Feel the Force of legendary battles, heroic journeys, and unforgettable characters.
+                            </p>
+                        </div>
                     </div>
-                    <div class="wrapper__content__list">
-                        <ul id="films">
-                        </ul>
+                    <div class="hero__promo-btn">
+                            <a href="./heroes.html" class="hero__promo-link">
+                                <span>Heroes</span>
+                                <img src="../src/assets/image/vader.svg" class="hero__promo-link_img" alt="cup">
+                            </a>
                     </div>
                 </div>
-            </div>
+            </section>
+                <section class="Favourites_Films" id="favorite_films">
+                    <div class="wrapper favorite_films">
+                        <div class="favorite_films__title">
+                            <h2>Choose your <span style="font-style: italic; color: #B0907A;">favorite</span> films</h2>
+                        </div>
+                        <div class="slider__btn-container">
+                            <div class="slider__btn prev">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                            </div>
+                            <div class="slider__btn next">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                            </div>
+                        </div>  
+                        <div class="slider"> 
+                        </div>
+                        <div class="slider__navigation">
+                                <div class="stripe-container">
+                                    <div class="stripe active"></div>
+                                </div>
+                                <div class="stripe-container">
+                                    <div class="stripe"></div>
+                                </div>
+                                <div class="stripe-container">
+                                    <div class="stripe"></div>
+                                </div>
+                                <div class="stripe-container">
+                                    <div class="stripe"></div>
+                                </div>
+                                <div class="stripe-container">
+                                    <div class="stripe"></div>
+                                </div>
+                                <div class="stripe-container">
+                                    <div class="stripe"></div>
+                                </div>
+                        </div>                            
+                    </div>
+                </section>
         </main>
         <footer>
         </footer>

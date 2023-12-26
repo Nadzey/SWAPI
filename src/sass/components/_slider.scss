@@ -1,0 +1,115 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    animation-play-state: running;
+    overflow: hidden;
+  }
+  
+  .slider__slide img {
+    max-width: 48rem;
+    display: block;
+    margin: 0 auto;
+    @include content-width ($max-width: 608px){
+      max-width: 34.8rem;
+    }
+  }
+  
+  .slider__slide_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    max-width: 48rem;
+    justify-content: center;
+    @include content-width ($max-width: 608px){
+      padding-top: 2rem;
+      max-width: 35rem;
+    }
+  }
+  
+  .slider__slide_title {
+    @include font(1.6rem, 1.5, 600);
+  }
+  
+  .slider__slide_text {
+    @include font(1.6rem, 1.5, 400);
+    text-align: center;
+    padding-top: 1.5rem;
+    height: 30rem;
+    @include content-width ($max-width: 608px){
+      @include font(1.6rem, 1.5, 400);
+    }
+  }
+  
+  .slider__btn-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 295px;
+    @include content-width ($mobile-menu) {
+      visibility: hidden;
+    }
+  }
+  
+  .slider__btn-container > div:nth-child(1) {
+    display: flex;
+    transform: scaleX(-1);
+  }
+  
+  .slider__navigation {
+    position: absolute;
+    display: flex;
+    width: 35rem;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    @include mobile_mobile-big-width {
+      margin-top: 60rem;
+    }
+  }
+  
+  .stripe-container {
+    flex-grow: 1; 
+    width: 40px; 
+    background-color: $border-color-ligth;
+    border-radius: 100px;
+  }
+  
+  .stripe {
+    height: 4px;
+    width: 100%;
+    background-color: $border-color-ligth;
+    border-radius: 100px;
+    
+  }
+  
+  .stripe.active-stripe{
+    @include animate-stripe($duration: 5s, $delay: 0s);
+  }
+  
+  
+  .slider__slide {
+    display: none;
+    opacity: 0;
+  }
+  
+  .slider__slide.active {
+    display: block;
+  }
+  
+  .slide-left {
+    @include slideAnimation(left, 0.5s, ease-in-out);
+  }
+  
+  .slide-right {
+    @include slideAnimation(right, 0.5s, ease-in-out);
+  }
+  
+  .slider__slide-img {
+    cursor: pointer;
+  }

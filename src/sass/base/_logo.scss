@@ -1,0 +1,11 @@
+.header__logo {
+  @include mobile_tablet {
+    z-index: 10;
+  }
+}
+
+.icon {
+  width: 15rem;
+  height: auto;
+  image-rendering: black;
+}

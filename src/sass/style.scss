@@ -4,4 +4,24 @@
 @import "./abstracts/mixins";
 @import "./abstracts/plaseholders";
 
+//base
 @import "./base/base";
+@import "./base/logo";
+
+//layots
+@import "./layots/wrapper";
+@import "./layots/header";
+@import "./layots/hero";
+@import "./layots/footer";
+@import "./layots/favorite_films";
+
+//components
+@import "./components/burger";
+@import "./components/navigation";
+@import "./components/contact_us";
+@import "./components/social_links";
+@import "./components/slider";
+
+//buttons
+@import "./buttons/hero_button";
+@import "./buttons/slider-buttons";
