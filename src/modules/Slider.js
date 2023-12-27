@@ -21,7 +21,9 @@ export class Slider {
 
         this.showSlide(this.currentSlideIndex);
       
-        this.startAutoSlide(5000);
+        this.startAutoSlide(7000);
+
+        this.initTouchEvents();
 
     }
 
@@ -68,7 +70,7 @@ export class Slider {
         this.startAutoSlide();
     }
 
-    startAutoSlide(interval = 5000) {
+    startAutoSlide(interval = 7000) {
         clearInterval(this.autoSlideInterval); 
         this.autoSlideStartTime = Date.now(); 
         this.remainingTime = interval;
@@ -77,7 +79,7 @@ export class Slider {
             if (!this.isAnimationPaused) {
                 this.pluseSlide(1);
                 this.autoSlideStartTime = Date.now(); 
-                this.remainingTime = 5000; 
+                this.remainingTime = 7000; 
             }
         }, interval);
     }
@@ -109,48 +111,46 @@ export class Slider {
     }
 
     pauseAnimation() {
-        this.slideLeft.forEach(slide => {
-            const style = window.getComputedStyle(slide);
-            slide.style.animationPlayState = 'paused';
+        if (!this.isAnimationPaused) {
+            this.stopAutoSlide();
+            this.slideLeft.forEach(slide => slide.style.animationPlayState = 'paused');
+            this.stripe.forEach(stripe => stripe.style.animationPlayState = 'paused');
+            this.isAnimationPaused = true;
             let currentTime = Date.now();
             this.remainingTime -= currentTime - this.autoSlideStartTime;
-            this.isAnimationPaused = true;
-        });
-
-        this.stripe.forEach(stripe => {
-            stripe.style.animationPlayState = 'paused';
-        });
+        }
     }
-
+    
     resumeAnimation() {
-        this.slideLeft.forEach(slide => {
-            slide.style.animationPlayState = 'running';
+        if (this.isAnimationPaused) {
+            this.slideLeft.forEach(slide => slide.style.animationPlayState = 'running');
+            this.stripe.forEach(stripe => stripe.style.animationPlayState = 'running');
             this.isAnimationPaused = false; 
+            this.autoSlideStartTime = Date.now();
             this.startAutoSlide(this.remainingTime);
-        });
-
-        this.stripe.forEach(stripe => {
-            stripe.style.animationPlayState = 'running';
-        });
+        }
     }
+    
 
     initTouchEvents() {
-        this.sliderElement.addEventListener('touchstart', (event) => {
-            this.touchStartX = event.changedTouches[0].screenX;
-        }, false);
+        if (this.sliderElement) {
+            this.sliderElement.addEventListener('touchstart', (event) => {
+                this.touchStartX = event.changedTouches[0].screenX;
+            }, false);
 
-        this.sliderElement.addEventListener('touchend', (event) => {
-            this.touchEndX = event.changedTouches[0].screenX;
-            this.handleSwipeGesture();
-        }, false);
+            this.sliderElement.addEventListener('touchend', (event) => {
+                this.touchEndX = event.changedTouches[0].screenX;
+                this.handleSwipeGesture();
+            }, false);
+        }
     }
 
     handleSwipeGesture() {
         const swipeDistance = this.touchEndX - this.touchStartX;
 
-        if (swipeDistance < 30) { 
+        if (swipeDistance < 50) { 
             this.pluseSlide(1);
-        } else if (swipeDistance > -30) { 
+        } else if (swipeDistance > -50) { 
             this.pluseSlide(-1);
         }
     }

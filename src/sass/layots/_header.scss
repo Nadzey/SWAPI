@@ -23,7 +23,7 @@
     }
   }
 
-  .header.open .header__menu-block{
+  header.open .header__menu-block{
     @include mobile_tablet {
       transform: translateX(-100%);
       visibility: visible;

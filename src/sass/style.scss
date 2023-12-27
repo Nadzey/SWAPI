@@ -14,6 +14,8 @@
 @import "./layots/hero";
 @import "./layots/footer";
 @import "./layots/favorite_films";
+@import "./layots/mobile_app";
+@import "./layots/heroes";
 
 //components
 @import "./components/burger";
@@ -21,7 +23,11 @@
 @import "./components/contact_us";
 @import "./components/social_links";
 @import "./components/slider";
+@import "./components/heroes_galery";
 
 //buttons
 @import "./buttons/hero_button";
 @import "./buttons/slider-buttons";
+@import "./buttons/download_buttons";
+@import "./buttons/heroes_buttons";
+@import "./buttons/heroes_refresh_button";

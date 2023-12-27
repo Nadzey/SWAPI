@@ -1,0 +1,56 @@
+.buttons_navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  
+  .buttons_navigation__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 7px;
+    margin-bottom: 2rem;
+    border-radius: 40px;
+    border: none;
+    border: 1px solid $border-color-ligth;
+    color: $text-dark;
+    @include font(1.6rem, 1.25, 600);
+    cursor: pointer;
+    background-color: $background-body;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    @extend %transition_buttons;
+    @media (any-hover: hover) and (any-pointer: fine){
+    &:hover {
+      color: $text-light;
+      background-color: $background-container;
+    }
+  }
+  }
+  
+  .buttons_navigation__button.active {
+    background-color: $background-container;
+    color: $text-light;
+    cursor: unset;
+  }
+  
+  .buttons_navigation__button_icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .svg__cover {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: $border-color-ligth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+  }
+  
+  .buttons_navigation__button_text {
+    margin-right: 10px;
+  }

@@ -8,11 +8,11 @@
   }
   
   .slider__slide img {
-    max-width: 48rem;
+    width: 40rem;
     display: block;
     margin: 0 auto;
     @include content-width ($max-width: 608px){
-      max-width: 34.8rem;
+      max-width: 35rem;
     }
   }
   
@@ -69,7 +69,7 @@
     left: 50%;
     transform: translateX(-50%);
     @include mobile_mobile-big-width {
-      margin-top: 60rem;
+      width: 30rem;
     }
   }
   
@@ -89,7 +89,7 @@
   }
   
   .stripe.active-stripe{
-    @include animate-stripe($duration: 5s, $delay: 0s);
+    @include animate-stripe($duration: 7s, $delay: 0s);
   }
   
   

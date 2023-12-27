@@ -1,0 +1,29 @@
+.refresh_button-container{
+    display: none;
+    @include mobile_tablet {
+    display: flex;
+    justify-content:flex-end;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    } 
+}
+
+.refresh_button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-style: none;
+    border: 1px solid $border-color-dark; 
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.refresh {
+    .refresh-path {
+    stroke: $border-color-dark;
+    cursor: pointer;
+    margin: 0 auto;
+    @include spinAnimation;
+    }
+}

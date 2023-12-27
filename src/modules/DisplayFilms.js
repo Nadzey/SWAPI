@@ -10,7 +10,7 @@ export function displayFilms() {
                 const slideElement = document.createElement('div');
                 slideElement.className = `slider__slide ${index === 0 ? 'active slide-left' : ''}`;
 
-                const episodeImage = `../src/assets/image/episode${film.properties.episode_id}.jpg`;
+                const episodeImage = `../src/assets/image/movies/episode${film.properties.episode_id}.jpg`;
                 slideElement.innerHTML = `
                     <div class="slider__slide-img">
                         <img src="${episodeImage}" alt="${film.properties.title}">

@@ -1,0 +1,45 @@
+.mobile_app__left__column,
+.mobile__app__right_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 10rem;
+}
+
+.mobile__app__right_column {
+  @include mobile_tablet {
+    padding: 10rem 3rem 0;
+  }
+  @include mobile_mobile-big-width {
+    padding: 3.8rem 0.1rem 0;
+    margin: 0 auto;
+  }
+}
+
+.mobile__app__right_column img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mobile_app__left__column_title h2 {
+  text-align: start;
+  padding-bottom: 4.2rem;
+  margin-right: 0.2rem;
+}
+
+.mobile_app__left__column_text {
+  text-align: start;
+  line-height: 1.5;
+}
+
+.download__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#mobile_app > div > div.mobile__app__left_column > div.download__buttons > div:nth-child(2) {
+  @include mobile_mobile-big-width {
+    margin-top: 2rem;
+  } 
+}
