@@ -18,13 +18,13 @@ export default class Header {
                 <nav class="header__menu">
                     <ul class="header__menu-list">
                         <li class="header__menu-item">
-                            <a href="index.html#favorite_films" class="header__menu-link">Favorite Movies</a>
+                            <a href="./index.html#favorite_films" class="header__menu-link">Favorite Movies</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="index.html#about" class="header__menu-link">About</a>
+                            <a href="./index.html#about" class="header__menu-link">About</a>
                         </li>
                         <li class="header__menu-item">
-                            <a href="index.html#mobile_app" class="header__menu-link">Mobile app</a>
+                            <a href="./index.html#mobile_app" class="header__menu-link">Mobile app</a>
                         </li>
                         <li class="header__menu-item">
                             <a href="#contacts" class="header__menu-link">Contact us</a>

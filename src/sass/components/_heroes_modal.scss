@@ -1,0 +1,29 @@
+.modal__content__container {
+    display: grid;
+    height: auto;
+    grid-template-columns: 310px 1fr; 
+    flex-shrink: 1;
+    gap: 20px; 
+    justify-content: flex-start;
+    padding-bottom: 105px;
+    @include mobile-tablet {
+        padding-bottom: 119px;
+    }
+    @include content-width (669px){
+        grid-template-columns: 1fr; 
+    } 
+}
+
+.modal__title{
+    @include font(1.6rem, 1.4);
+    letter-spacing: 0.1px;
+    color: $text-accent;
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+}

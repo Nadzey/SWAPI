@@ -8,7 +8,7 @@ export default class Header {
         <div class="wrapper foooter">
         <div class="footer-rigth">
             <h2>
-                Journey Through the Stars. <span style="font-style: italic; font-weight: 600; color: #B0907A; letter-spacing: 0.0176rem;">Explore the Universe of Star Wars.</span>
+                Journey Through the Stars. <span style="font-style: italic; font-weight: 600; color: #FFD700; letter-spacing: 0.0176rem;">Explore the Universe of Star Wars.</span>
             </h2>
             <div class="social-media">
                 <a href="https://twitter.com/starwars" class="social-link" target="_blank">

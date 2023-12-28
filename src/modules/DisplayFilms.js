@@ -4,9 +4,12 @@ export function displayFilms() {
     fetch('https://www.swapi.tech/api/films/')
         .then(response => response.json())
         .then(data => {
+            const sortedFilms = data.result.sort((a, b) => {
+                return a.properties.episode_id - b.properties.episode_id;
+            });
             const sliderContainer = document.querySelector('.slider');
 
-            data.result.forEach((film, index) => {
+            sortedFilms.forEach((film, index) => {
                 const slideElement = document.createElement('div');
                 slideElement.className = `slider__slide ${index === 0 ? 'active slide-left' : ''}`;
 

@@ -7,6 +7,7 @@
 //base
 @import "./base/base";
 @import "./base/logo";
+@import "./base/modal";
 
 //layots
 @import "./layots/wrapper";
@@ -16,6 +17,7 @@
 @import "./layots/favorite_films";
 @import "./layots/mobile_app";
 @import "./layots/heroes";
+@import "./layots/about";
 
 //components
 @import "./components/burger";
@@ -24,6 +26,8 @@
 @import "./components/social_links";
 @import "./components/slider";
 @import "./components/heroes_galery";
+@import "./components/heroes_modal";
+@import "./components/about_image_galery";
 
 //buttons
 @import "./buttons/hero_button";

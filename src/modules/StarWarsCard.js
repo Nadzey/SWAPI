@@ -1,6 +1,6 @@
 export class StarWarsCard {
     constructor(data, category) {
-        this.id = data.uid;
+        this.uid = data.uid;
         this.name = data.name;
         this.url = data.url;
         this.category = category;
@@ -26,7 +26,7 @@ export class StarWarsCard {
         let template = '';
         let card = document.createElement('div');
         card.className = 'card';
-        card.setAttribute('data-id', this.id);
+        card.setAttribute('data-id', this.uid);
         card.setAttribute('data-category', this.category);
 
         const imagePath = this.getImagePath();
@@ -41,7 +41,7 @@ export class StarWarsCard {
         template += `
             <div class="card__content">
                 <h3 class="card__title">${this.name}</h3>
-                <a href="${this.url}" class="card__link">Learn More</a>
+                <p> Click to Learn More</p>
             </div>
         `;
       }

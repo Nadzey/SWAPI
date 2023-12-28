@@ -1,8 +1,7 @@
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
-import Slider from './modules/Slider.js'
 import { displayFilms } from './modules/DisplayFilms.js';
-import { initNavigation } from './Pages/Heroes/HeroesPage.js';
+import { initNavigation, addHeroesModalClickHeandler } from './Pages/Heroes/HeroesPage.js';
 import { smothScroll, renderBurgerMenu } from './modules/Navigation.js'; 
 
 export default class App {
@@ -19,18 +18,11 @@ export default class App {
 
         this.loadContent();
 
-        this.initializeSlider();
     }
 
     loadContent() {
         displayFilms();
         initNavigation();
-    }
-
-    initializeSlider() {
-        if (document.querySelector('.slider')) {
-            this.slider = new Slider();
-            this.slider.initEventListeners(); 
-        }
+        addHeroesModalClickHeandler();
     }
 }

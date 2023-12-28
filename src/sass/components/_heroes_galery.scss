@@ -91,4 +91,7 @@
     max-width: 310px;
     padding: 2rem;
     @include font($size: 2rem, $heigth: 1.25, $weight: 600, $style: normal); 
+    h3{
+        color: $text-accent;
+    }
 }
