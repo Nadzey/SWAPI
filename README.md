@@ -50,6 +50,7 @@ npm install
 ```
 
 ### Running the Application
+#### Use one of mode:
 
 - **Development Mode**:
 ```bash
