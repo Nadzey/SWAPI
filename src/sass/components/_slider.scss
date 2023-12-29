@@ -100,14 +100,15 @@
   
   .slider__slide.active {
     display: block;
+    opacity: 1;
   }
   
-  .slide-left {
-    @include slideAnimation(left, 0.5s, ease-in-out);
+  .slide-left{
+    @include slideAnimation(left, 0.7s, ease-in-out);
   }
   
   .slide-right {
-    @include slideAnimation(right, 0.5s, ease-in-out);
+    @include slideAnimation(right, 0.7s, ease-in-out);
   }
   
   .slider__slide-img {

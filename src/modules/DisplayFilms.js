@@ -14,6 +14,7 @@ export function displayFilms() {
                 slideElement.className = `slider__slide ${index === 0 ? 'active slide-left' : ''}`;
 
                 const episodeImage = `../src/assets/image/movies/episode${film.properties.episode_id}.jpg`;
+                
                 slideElement.innerHTML = `
                     <div class="slider__slide-img">
                         <img src="${episodeImage}" alt="${film.properties.title}">
@@ -31,9 +32,10 @@ export function displayFilms() {
                     </div>
                 `;
                 sliderContainer.appendChild(slideElement);
-                const slider = new Slider();
-                slider.initEventListeners();
+                
             });
+            const slider = new Slider();
+            slider.initEventListeners();
         })
         .catch(error => console.error('Error fetching data: ', error));
 }

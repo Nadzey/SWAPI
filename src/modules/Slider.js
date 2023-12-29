@@ -7,31 +7,40 @@ export class Slider {
         this.slideImg = document.querySelectorAll('.slider__slide-img')
         this.nextButton = document.querySelector('.slider__btn.next');
         this.prevButton = document.querySelector('.slider__btn.prev');
-        this.slideLeft = document.querySelectorAll('.slide-left');
         this.touchStartX = 0;
         this.touchEndX = 0;
         this.totalSlides = this.slides.length;
         this.isAnimationPaused = false;
         this.autoSlideStartTime = 0;
         this.remainingTime = 0;
-        
-        if (this.slides.length > 0) {
-            this.slides[0].classList.add('active');
-        }
+        this.autoSlideInterval = null;
 
+       
         this.showSlide(this.currentSlideIndex);
-      
-        this.startAutoSlide(7000);
+
+        this.startAutoSlide();
 
         this.initTouchEvents();
-
     }
 
-    showSlide(index) {
+  
+    pluseSlide(n) {
+        this.stopAutoSlide();
+        const newIndex = this.currentSlideIndex + n;
+        this.showSlide(newIndex, n > 0 ? 'left' : 'right');
+      
+        if (!this.isAnimationPaused) {
+            this.startAutoSlide(); 
+        }
+    }
+    
+    
+    showSlide(index,direction) {
         this.slides.forEach(slide => {
-            slide.classList.remove('active');
+            slide.classList.remove('active', 'slide-left', 'slide-right');
+            slide.style.animation = '';
         });
-
+    
         if (index >= this.totalSlides) {
             this.currentSlideIndex = 0;
         } else if (index < 0) {
@@ -39,30 +48,22 @@ export class Slider {
         } else {
             this.currentSlideIndex = index;
         }
-
-        this.slides[this.currentSlideIndex].classList.add('active');
-
-        this.updateStripes();
-    }
-
-    pluseSlide(n) {
-        this.stopAutoSlide();
     
-        const currentSlide = this.slides[this.currentSlideIndex];
-        currentSlide.classList.remove('slide-left', 'slide-right');
-    
-        const newIndex = this.currentSlideIndex + n;
-        this.showSlide(newIndex);
-    
-        const newSlide = this.slides[this.currentSlideIndex];
-        const animationClass = n > 0 ? 'slide-left' : 'slide-right';
-        newSlide.classList.add(animationClass);
+        const newActiveSlide = this.slides[this.currentSlideIndex];
+        newActiveSlide.classList.add('active');
     
         if (!this.isAnimationPaused) {
-            this.startAutoSlide(); 
+            if (direction === 'right') {
+                newActiveSlide.classList.add('slide-right');
+                newActiveSlide.style.animation = 'slideAnimation right 0.7s ease-in-out'; 
+            } else {
+                newActiveSlide.classList.add('slide-left');
+                newActiveSlide.style.animation = 'slideAnimation left 0.7s ease-in-out'; 
+            }
         }
-    }
     
+        this.updateStripes();
+    }
 
     currentSlide(n) {
         this.stopAutoSlide();
@@ -111,46 +112,52 @@ export class Slider {
     }
 
     pauseAnimation() {
-        if (!this.isAnimationPaused) {
-            this.stopAutoSlide();
-            this.slideLeft.forEach(slide => slide.style.animationPlayState = 'paused');
-            this.stripe.forEach(stripe => stripe.style.animationPlayState = 'paused');
+        const activeSlide = this.sliderElement.querySelector('.active');
+        if (activeSlide) {
+            activeSlide.classList.remove('slide-left', 'slide-right');
+            activeSlide.style.animationPlayState = 'paused';
             this.isAnimationPaused = true;
             let currentTime = Date.now();
             this.remainingTime -= currentTime - this.autoSlideStartTime;
         }
+        this.stripe.forEach(stripe => {
+            stripe.style.animationPlayState = 'paused';
+        });
     }
     
     resumeAnimation() {
-        if (this.isAnimationPaused) {
-            this.slideLeft.forEach(slide => slide.style.animationPlayState = 'running');
-            this.stripe.forEach(stripe => stripe.style.animationPlayState = 'running');
-            this.isAnimationPaused = false; 
-            this.autoSlideStartTime = Date.now();
+        const activeSlide = this.sliderElement.querySelector('.active');
+        if (activeSlide) {
+            activeSlide.style.animationPlayState = 'running';
+            this.isAnimationPaused = false;
             this.startAutoSlide(this.remainingTime);
         }
+        this.stripe.forEach(stripe => {
+            stripe.style.animationPlayState = 'running';
+        });
     }
     
-
     initTouchEvents() {
         if (this.sliderElement) {
             this.sliderElement.addEventListener('touchstart', (event) => {
                 this.touchStartX = event.changedTouches[0].screenX;
+                this.handleSwipeGesture();
             }, false);
 
             this.sliderElement.addEventListener('touchend', (event) => {
                 this.touchEndX = event.changedTouches[0].screenX;
-                this.handleSwipeGesture();
             }, false);
+            
         }
+        
     }
 
     handleSwipeGesture() {
         const swipeDistance = this.touchEndX - this.touchStartX;
 
-        if (swipeDistance < 50) { 
+        if (swipeDistance < 100) { 
             this.pluseSlide(1);
-        } else if (swipeDistance > -50) { 
+        } else if (swipeDistance > 100) { 
             this.pluseSlide(-1);
         }
     }

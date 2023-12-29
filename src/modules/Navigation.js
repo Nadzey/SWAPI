@@ -1,12 +1,20 @@
 export function smothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-    
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    document.querySelectorAll('a[href^="#"], a[href^="./index.html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            const isInternalLink = href.startsWith('#');
+            const targetId = isInternalLink ? href.substring(1) : href.split('#')[1];
+
+            const path = window.location.pathname;
+            if (path.endsWith('index.html') || path === '/' || isInternalLink) {
+                e.preventDefault();
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            } 
         });
+        
     });
 }
 
