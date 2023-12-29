@@ -5,24 +5,24 @@ import { initNavigation, addHeroesModalClickHeandler } from './Pages/Heroes/Hero
 import { smothScroll, renderBurgerMenu } from './modules/Navigation.js'; 
 
 export default class App {
-    init() {
-        this.header = new Header();
-        const container = document.querySelector('.container');
-        container.prepend(this.header.render());
-     
-        this.footer = new Footer();
-        container.appendChild(this.footer.render()); 
+  init() {
+    this.header = new Header();
+    const container = document.querySelector(".container");
+    container.prepend(this.header.render());
 
-        renderBurgerMenu();
-        smothScroll(); 
+    this.footer = new Footer();
+    container.appendChild(this.footer.render());
 
-        this.loadContent();
+    renderBurgerMenu();
+    smothScroll();
 
-    }
+    this.loadContent();
+    //this.setupSearch();
+  }
 
-    loadContent() {
-        displayFilms();
-        initNavigation();
-        addHeroesModalClickHeandler();
-    }
+  loadContent() {
+    displayFilms();
+    initNavigation();
+    addHeroesModalClickHeandler();
+  }
 }

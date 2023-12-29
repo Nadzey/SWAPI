@@ -33,7 +33,7 @@ export class HeroesModal extends Modal {
         const imagePath = this.getImagePath();
         template += `
             <div class="card__image-container">
-                <img src="${imagePath}" alt="${this.name}">
+                <img src="${imagePath}" alt="${this.name}" onerror="this.src='./img/vader.svg'">
             </div>
             <div class="modal__content">
                 <h3 class="modal__title">Name: ${this.name}</h3>

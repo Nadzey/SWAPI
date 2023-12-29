@@ -1,5 +1,6 @@
 import { StarWarsCard } from "../../modules/StarWarsCard.js";
 import { HeroesModal } from "../../modules/HeroesModal.js";
+import { searchInStarWarsAPI } from '../../modules/Search.js';
 
 export function initNavigation() {
   const navigationButtons = document.querySelectorAll(
@@ -40,6 +41,7 @@ export function initNavigation() {
   );
   setActiveButton(defaultButton.id);
   loadData("https://www.swapi.tech/api/people/", "people");
+  setupSearch();
 }
 
 function loadData(url, category) {
@@ -52,6 +54,7 @@ function loadData(url, category) {
         const itemCard = new StarWarsCard(itemData, category);
         container.appendChild(itemCard.generateCard());
       });
+      console.log(data.results)
       toggleRefreshButton();
     })
     .catch((error) => console.error("Error fetching data: ", error));
@@ -139,3 +142,46 @@ export function addHeroesModalClickHeandler() {
 
   heroesItemsContainer.addEventListener("click", heroesItemClickHandler);
 }
+
+function  setupSearch() {
+  const searchButton = document.querySelector(".search");
+  const searchInput = document.querySelector(".search-input");
+  const searchCategorySelect = document.querySelector("#searchCategory");
+
+  searchButton.addEventListener("click", () => {
+    const searchTerm = searchInput.value.trim();
+    const category = searchCategorySelect.value;
+
+    if (!searchTerm) {
+      alert("Please enter a search term.");
+      return;
+    }
+
+    searchInStarWarsAPI(category, searchTerm)
+      .then((data) => {
+        if (data && data.result && data.result.length > 0) {
+          const container = document.querySelector(".heroes__items");
+          container.innerHTML = "";
+
+          const results = Array.isArray(data.result)
+            ? data.result
+            : [data.result];
+
+          results.forEach((itemData) => {
+            const cardData = {
+              uid: itemData.uid,
+              ...itemData.properties,
+            };
+            const itemCard = new StarWarsCard(cardData, category);
+            container.appendChild(itemCard.generateCard());
+          });
+          console.log(results);
+        } else {
+          alert("No results found.");
+        }
+      })
+      .catch((error) => {
+        console.error("Search failed:", error.message);
+      });
+  });
+}  

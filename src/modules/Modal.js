@@ -57,7 +57,11 @@ export class Modal {
     closeModal(e) {
         let classes = e.target.classList;
         if(classes.contains('modal__close-button') || classes.contains('modal__overlay')) {
-            document.querySelector('.modal__overlay').remove();
+            const overlay = document.querySelector('.modal__overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+            
         }
     }
 }

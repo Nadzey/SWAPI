@@ -11,16 +11,15 @@ export class StarWarsCard {
         return require.context('../assets/image/planets', false, /\.(png|jpe?g|svg)$/);
         return require.context('../assets/image/vehicles', false, /\.(png|jpe?g|svg)$/);
     }
-
+    
     getImagePath() {
         const formatImageName = (name) => {
             return name.toLowerCase().replace(/[\s\/]/g, '-').concat('.jpg');
         };
-    
+        
         const imageName = formatImageName(this.name);
         return `./img/${imageName}`;
     }
-    
     
     generateCard() {
         let template = '';
@@ -33,7 +32,7 @@ export class StarWarsCard {
 
         template += `
         <div class="card__image-container">
-        <img src="${imagePath}" alt="${this.name}">
+        <img src="${imagePath}" alt="${this.name}" onerror="this.src='./img/vader.svg'">
         </div>
       `;
 

@@ -42,15 +42,18 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 
 ```bash
 git clone https://github.com/Nadzey/SWAPI.git
-cd SWAPI
 ```
 
+### Switch to the swapi branch
+
 ### Install Dependencies 🛠️
+
 ```bash
 npm install
 ```
 
 ### Running the Application
+- **Use one of modes**:
 
 - **Development Mode**:
 ```bash
@@ -62,7 +65,7 @@ npm run dev
 ```bash
 npm run prod
 ```
-#### Builds the project for production, minimizing the code with MiniCssExtractPlugin and babel-loader for JavaScript transpilation. 
+- **Builds the project for production, minimizing the code with MiniCssExtractPlugin and babel-loader for JavaScript transpilation.** 
 
 ### After running, open index.html from the dist folder with Life Server to view the project.
 
