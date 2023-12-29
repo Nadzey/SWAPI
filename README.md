@@ -46,6 +46,9 @@ git clone https://github.com/Nadzey/SWAPI.git
 
 ### Install Dependencies 🛠️
 ```bash
+npm init
+```
+```bash
 npm install
 ```
 
