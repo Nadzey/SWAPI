@@ -56,11 +56,15 @@ npm install
 ```bash
 npm run dev
 ```
+#### watches for any file changes
 
 - **Production Mode**:
 ```bash
 npm run prod
 ```
+#### Builds the project for production, minimizing the code with MiniCssExtractPlugin and babel-loader for JavaScript transpilation. 
+
+### After running, open index.html from the dist folder with Life Server to view the project.
 
 ## Contact ☎️
 - 📧 nadiakoluzaeva@gmail.com
