@@ -1,6 +1,7 @@
 import { Slider } from './Slider.js';
 
 export function displayFilms() {
+    loadImages();
     fetch('https://www.swapi.tech/api/films/')
         .then(response => response.json())
         .then(data => {
@@ -13,8 +14,8 @@ export function displayFilms() {
                 const slideElement = document.createElement('div');
                 slideElement.className = `slider__slide ${index === 0 ? 'active slide-left' : ''}`;
 
-                const episodeImage = `../src/assets/image/movies/episode${film.properties.episode_id}.jpg`;
-                
+                const episodeImage = `./img/episode${film.properties.episode_id}.jpg`;
+
                 slideElement.innerHTML = `
                     <div class="slider__slide-img">
                         <img src="${episodeImage}" alt="${film.properties.title}">
@@ -39,5 +40,6 @@ export function displayFilms() {
         })
         .catch(error => console.error('Error fetching data: ', error));
 }
-
-
+function loadImages() {
+    return require.context('../assets/image/movies', false, /\.(png|jpe?g|svg)$/);
+}
