@@ -42,7 +42,6 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 
 ```bash
 git clone https://github.com/Nadzey/SWAPI.git
-cd SWAPI
 ```
 
 ### Install Dependencies 🛠️
