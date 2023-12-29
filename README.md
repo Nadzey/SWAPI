@@ -69,7 +69,7 @@ npm run prod
 ## Contact ☎️
 - 📧 nadiakoluzaeva@gmail.com
 - 📞 215 268 8878
-- 💬 [Мой Discord аккаунт](https://discord.com/users/nadia9022)
+- 💬 [Discord](https://discord.com/users/nadia9022)
 - 🔗 [LinkedIn](https://www.linkedin.com/in/nadzeya-kaluzayeva/)
 - 📍 Philadelphia, 19116
 
