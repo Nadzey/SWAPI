@@ -1,0 +1,28 @@
+%transition_visibility {
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+%transition_buttons {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+%transition {
+    transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s;
+}
+
+%font-add {
+    font-family: "Inter", Verdana, sans-serif;
+}
+
+%custom-scroll {
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $text-accent;
+        border-radius: 10px;
+    }
+}

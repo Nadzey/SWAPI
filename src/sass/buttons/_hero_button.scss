@@ -1,0 +1,40 @@
+.hero__promo-btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: $text-accent;
+    color: $text-dark;
+    border-radius: 4rem;
+    @include font ($size: 1.5rem, $heigth: 1.5);
+    cursor: pointer;
+    width: 200px;
+    height: 65px;
+    margin-top: 3.9rem;
+  }
+  
+  
+  .hero__promo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    padding: 2rem;
+    @extend %transition_buttons;
+  }
+
+  .hero__promo-link_img {
+    display: none;
+    margin-left: 0.8rem;
+    @include mobile_tablet {
+        display: block;
+    }
+}
+
+@media (any-hover: hover) and (any-pointer: fine){
+.hero__promo-link:hover .hero__promo-link_img {
+  display: block;
+  }
+}

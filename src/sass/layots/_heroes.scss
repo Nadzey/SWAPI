@@ -1,0 +1,20 @@
+.heroes_title {
+    max-width: 800px; 
+    margin: 0 auto; 
+    text-align: center; 
+    padding-bottom: 4rem;
+    padding-top: 1.7rem;
+}
+
+.heroes_title h1{
+    @include font ($size: 6rem, $heigth: 1.25, $weight: 600, $style: normal);
+    color: $text-dark;
+    text-align: center; 
+    letter-spacing: 0.0001;
+    @include content-width ($mobile-menu) {
+        @include font($size: 4.2rem, $heigth: 1.25, $weight: 600, $style: normal);
+    }
+    @include mobile_mobile-big-width {
+        @include font($size: 3.2rem, $heigth: 1.25, $weight: 600, $style: normal);
+    }
+}
