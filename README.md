@@ -14,7 +14,10 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 - **About**: Information about the project.
 - **Mobile App**: Details on the Star Wars mobile app.
 - **Contacts**: For inquiries and feedback.
-- **Heroes Page**: Information about characters, planets, and vehicles. Clicking on the hero card, you will see a window with additional information.
+- **Heroes Page**: 
+- Information about characters, planets, and vehicles (10 cards foe each category). 
+- Clicking on the hero card, you will see a window with additional information.
+- Search function with selected category.
 
 ### Tech Stack
 
@@ -43,8 +46,6 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 ```bash
 git clone https://github.com/Nadzey/SWAPI.git
 ```
-
-### Switch to the swapi branch
 
 ### Install Dependencies 🛠️
 

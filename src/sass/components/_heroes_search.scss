@@ -42,4 +42,11 @@
   .search-category:focus {
     background-color: $background-container;
   }
+
+  input[type="text"]::-webkit-input-placeholder {
+    color: $text-light;
+   } 
+   input[type="text"]::-moz-placeholder {
+    color: $text-light;
+   }
   

@@ -54,7 +54,6 @@ function loadData(url, category) {
         const itemCard = new StarWarsCard(itemData, category);
         container.appendChild(itemCard.generateCard());
       });
-      console.log(data.results)
       toggleRefreshButton();
     })
     .catch((error) => console.error("Error fetching data: ", error));
@@ -63,32 +62,38 @@ function loadData(url, category) {
 function toggleRefreshButton() {
   const screenWidth = window.innerWidth;
   const heroesItems = document.querySelectorAll(".card");
-  const isHiddenItemPresent = Array.from(heroesItems).some(
-    (item) => item.style.display === "none" || item.style.display === ""
-  );
-  const refreshButtonContainer = document.querySelector(
-    ".refresh_button-container"
-  );
+  const refreshButtonContainer = document.querySelector(".refresh_button-container");
 
-  if (screenWidth <= 768 && isHiddenItemPresent) {
+  heroesItems.forEach((item, index) => {
+    if (screenWidth <= 768 && index >= 4) {
+      item.style.display = "none";
+    } else {
+      item.style.display = "block";
+    }
+  });
+
+  if (screenWidth <= 768 && heroesItems.length > 4) {
     refreshButtonContainer.style.display = "flex";
-  } else {
+  } 
+  else {
     refreshButtonContainer.style.display = "none";
   }
+
 }
 
 function showAllGalleryItems() {
+  const refreshButton = document.querySelector(".refresh_button-container");
   const heroesItems = document.querySelectorAll(".card");
   heroesItems.forEach((item) => (item.style.display = "block"));
-  toggleRefreshButton();
+  refreshButton.style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const refreshButton = document.querySelector(".refresh_button-container");
   if (refreshButton) {
     refreshButton.addEventListener("click", showAllGalleryItems);
+   
   }
-
   window.addEventListener("resize", toggleRefreshButton);
 });
 
@@ -143,7 +148,7 @@ export function addHeroesModalClickHeandler() {
   heroesItemsContainer.addEventListener("click", heroesItemClickHandler);
 }
 
-function  setupSearch() {
+function setupSearch() {
   const searchButton = document.querySelector(".search");
   const searchInput = document.querySelector(".search-input");
   const searchCategorySelect = document.querySelector("#searchCategory");
@@ -163,11 +168,7 @@ function  setupSearch() {
           const container = document.querySelector(".heroes__items");
           container.innerHTML = "";
 
-          const results = Array.isArray(data.result)
-            ? data.result
-            : [data.result];
-
-          results.forEach((itemData) => {
+          data.result.forEach((itemData) => {
             const cardData = {
               uid: itemData.uid,
               ...itemData.properties,
@@ -175,7 +176,7 @@ function  setupSearch() {
             const itemCard = new StarWarsCard(cardData, category);
             container.appendChild(itemCard.generateCard());
           });
-          console.log(results);
+          toggleRefreshButton();
         } else {
           alert("No results found.");
         }
@@ -184,4 +185,4 @@ function  setupSearch() {
         console.error("Search failed:", error.message);
       });
   });
-}  
+}

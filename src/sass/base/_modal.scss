@@ -41,6 +41,7 @@
     right: 16px;
     bottom: 16px;
     @include font(1.6rem, 1.5);
+    color: $background-background;
     @include mobile-tablet {
         padding: 10px 139px;
     }
