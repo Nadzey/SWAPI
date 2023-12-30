@@ -15,7 +15,7 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 - **Mobile App**: Details on the Star Wars mobile app.
 - **Contacts**: For inquiries and feedback.
 - **Heroes Page**: 
-- Information about characters, planets, and vehicles (10 cards foe each category). 
+- Information about characters, planets, and vehicles (10 cards for each category). 
 - Clicking on the hero card, you will see a window with additional information.
 - Search function with selected category.
 
