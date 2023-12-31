@@ -1,8 +1,10 @@
 import { Slider } from './Slider.js';
 
+const BASE_URL = "https://www.swapi.tech/api";
+
 export function displayFilms() {
     loadImages();
-    fetch('https://www.swapi.tech/api/films/')
+    fetch(`${BASE_URL}/films/`)
         .then(response => response.json())
         .then(data => {
             const sortedFilms = data.result.sort((a, b) => {

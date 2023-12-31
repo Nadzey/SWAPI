@@ -6,10 +6,11 @@
     color: $text-dark;
     border-radius: 4rem;
     @include font ($size: 1.5rem, $heigth: 1.5);
-    cursor: pointer;
     width: 200px;
     height: 65px;
+    cursor: pointer;
     margin-top: 3.9rem;
+    z-index: 10;
   }
   
   
@@ -21,7 +22,6 @@
     height: 100%;
     text-decoration: none;
     color: inherit;
-    padding: 2rem;
     @extend %transition_buttons;
   }
 
