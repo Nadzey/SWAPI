@@ -1,5 +1,6 @@
 .refresh_button-container{
     @include mobile_tablet {
+    display: flex;
     justify-content:flex-end;
     flex-direction: column;
     align-items: center;

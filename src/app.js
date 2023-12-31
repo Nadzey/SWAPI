@@ -15,14 +15,12 @@ export default class App {
 
     renderBurgerMenu();
     smothScroll();
-
     this.loadContent();
-    //this.setupSearch();
   }
 
   loadContent() {
     displayFilms();
     initNavigation();
     addHeroesModalClickHeandler();
+    }
   }
-}

@@ -15,9 +15,10 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 - **Mobile App**: Details on the Star Wars mobile app.
 - **Contacts**: For inquiries and feedback.
 - **Heroes Page**: 
-- Information about characters, planets, and vehicles (10 cards foe each category). 
+- Information about characters, planets, and vehicles. 
 - Clicking on the hero card, you will see a window with additional information.
 - Search function with selected category.
+- Pagination for all category. On start page present 12 cards.
 
 ### Tech Stack
 
@@ -46,6 +47,11 @@ The Star Wars Project is an interactive web experience for fans of the "Star War
 ```bash
 git clone https://github.com/Nadzey/SWAPI.git
 ```
+### Open folder
+
+```bash
+cd SWAPI
+```
 
 ### Install Dependencies 🛠️
 
@@ -68,7 +74,7 @@ npm run prod
 ```
 - **Builds the project for production, minimizing the code with MiniCssExtractPlugin and babel-loader for JavaScript transpilation.** 
 
-### After running, open index.html from the dist folder with Life Server to view the project.
+### After buil formed, open the file dist/index.html in a browser (for example you can use Life Server extension) to operate the aplication.
 
 ## Contact ☎️
 - 📧 nadiakoluzaeva@gmail.com

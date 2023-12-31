@@ -63,16 +63,15 @@ module.exports = (env, options) => {
         plugins: [
           new CleanWebpackPlugin(),
           new HtmlWebpackPlugin({
-            template: './public/index.html', 
-            filename: 'index.html', 
-            chunks: ['main'] 
-          }),
-          new HtmlWebpackPlugin({
             template: './public/heroes.html', 
             filename: 'heroes.html', 
             chunks: ['main'] 
           }),
-
+          new HtmlWebpackPlugin({
+            template: './public/index.html', 
+            filename: 'index.html', 
+            chunks: ['main'] 
+          }),
           new MiniCssExtractPlugin({
             filename: 'style.css',
           }),
